@@ -6,12 +6,13 @@ NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-LDFLAGS = -L$(MINILIBX_PATH)
+# LDFLAGS = -L$(MINILIBX)
+FRAMEWORK = -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(MINILIBX)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDFLAGS)
+$(NAME): $(MINILIBX) $(OBJS)
+	$(CC) $(MINILIBX) $(OBJS) $(FRAMEWORK) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(MINILIBX) -c $< -o $@
@@ -25,7 +26,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	@make fclean -C $(MINILIBX_PATH)
+	# @make fclean -C $(MINILIBX_PATH)
 
 re: fclean all
 

@@ -6,11 +6,15 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:02:20 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/07 19:55:57 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:34:49 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+// #include <time.h>
 
 typedef struct s_data {
 	void	*img;
@@ -19,6 +23,13 @@ typedef struct s_data {
 	int		line_length;
 	int		endian;
 }			t_data;
+
+typedef struct s_vars {
+	void	*mlx;
+	void	*win;
+	int		key_pressed;
+	t_data	*data;
+}			t_vars;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -86,26 +97,105 @@ void	ft_circle(t_data *data, int radius, int color)
 	}
 }
 
+int	escape_quit(int keycode, t_vars *vars)
+{
+	if (keycode == 53)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
+	return (0);
+}
+
+int	close_window(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	exit(0);
+}
+
+int	replace_img(int keycode, t_vars *vars)
+{
+	int		img_width;
+	int		img_height;
+	void	*new_img;
+
+	if (keycode == 13)
+	{
+		new_img = mlx_xpm_file_to_image(vars->mlx, "./gift.xpm",
+			&img_width, &img_height);
+		printf("img_w: %i\nimg_h: %i\n", img_width, img_height);
+		if (new_img)
+		{
+			mlx_destroy_image(vars->mlx, vars->data->img);
+			vars->data->img = new_img;
+			vars->data->addr = mlx_get_data_addr(vars->data->img,
+				&vars->data->bits_per_pixel, &vars->data->line_length,
+				&vars->data->endian);
+				mlx_put_image_to_window(vars->mlx, vars->win, vars->data->img,
+					0, 0);
+		}
+	}
+	return (0);
+}
+
+int	handle_key_press(int keycode, t_vars *vars)
+{
+	if (keycode == 53)
+		escape_quit(keycode, vars);
+	else if ((keycode >= 0 && keycode <= 2) || keycode == 13)
+		replace_img(keycode, vars);
+	else
+	{
+		vars->key_pressed = keycode;
+		printf("Keycode of pressed key: %i\n", keycode);
+	}
+	return (0);
+}
+
+int	mouse_pos(int x, int y)
+{
+	printf("(%i, %i)\n", x, y);
+	return (0);
+}
+
+int	mouse_enter(int x, int y)
+{
+	printf("Hello!\n");
+	return (mouse_pos(x, y));
+}
+
+int	mouse_leave(void)
+{
+	printf("See you soon!\n");
+	return (0);
+}
+
+int	mouse_track(int x, int y)
+{
+	if (x >= 0 && x <= 800 && y >= 0 && y <= 600)
+		return mouse_enter(x, y);
+	else
+		return mouse_leave();
+}
+
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
 	t_data	img;
+	t_vars	vars;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 800, 600, "Hello world!");
-	img.img = mlx_new_image(mlx, 800, 600);
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 800, 600, "Hello world!");
+	img.img = mlx_new_image(vars.mlx, 800, 600);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 			&img.endian);
-	ft_border(&img, 800, 600, 0x00FFFFFF);
-	ft_border(&img, 799, 599, rgba_to_hex(156, 53, 219, 0));
-	ft_border(&img, 798, 598, 0x00FFFFFF);
-	ft_border(&img, 797, 597, rgba_to_hex(156, 53, 219, 0));
-	ft_border(&img, 796, 596, 0x00FFFFFF);
-	ft_border(&img, 795, 595, rgba_to_hex(156, 53, 219, 0));
-	ft_circle(&img, 294, rgba_to_hex(39, 202, 245, 0));
-	ft_circle(&img, 293, rgba_to_hex(20, 130, 161, 0));
-	ft_circle(&img, 292, rgba_to_hex(123, 207, 39, 0));
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	vars.data = &img;
+	vars.key_pressed = 0;
+	// ft_border(&img, 800, 600, 0x00FFFFFF);
+	// ft_border(&img, 799, 599, rgba_to_hex(156, 53, 219, 0));
+	// ft_circle(&img, 294, rgba_to_hex(39, 202, 245, 0));
+	mlx_put_image_to_window(vars.mlx, vars.win, img.img, 0, 0);
+	mlx_key_hook(vars.win, handle_key_press, &vars);
+	mlx_hook(vars.win, 6, 1L << 6, mouse_track, &vars);
+	mlx_hook(vars.win, 17, 0, close_window, &vars);
+	mlx_loop(vars.mlx);
 }
