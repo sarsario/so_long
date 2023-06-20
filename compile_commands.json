@@ -1,0 +1,557 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_atoi.o",
+      "ft_atoi.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_atoi.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_atoi.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_bzero.o",
+      "ft_bzero.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_bzero.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_bzero.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_calloc.o",
+      "ft_calloc.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_calloc.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_calloc.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_isalpha.o",
+      "ft_isalpha.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isalpha.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isalpha.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_isdigit.o",
+      "ft_isdigit.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isdigit.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isdigit.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_isalnum.o",
+      "ft_isalnum.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isalnum.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isalnum.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_isascii.o",
+      "ft_isascii.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isascii.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isascii.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_isprint.o",
+      "ft_isprint.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isprint.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_isprint.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_memchr.o",
+      "ft_memchr.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memchr.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memchr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_memcmp.o",
+      "ft_memcmp.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memcmp.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memcmp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_memcpy.o",
+      "ft_memcpy.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memcpy.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memcpy.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_memmove.o",
+      "ft_memmove.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memmove.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memmove.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_memset.o",
+      "ft_memset.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memset.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_memset.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strchr.o",
+      "ft_strchr.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strchr.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strchr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strlen.o",
+      "ft_strlen.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strlen.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strlen.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strdup.o",
+      "ft_strdup.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strdup.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strdup.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strlcat.o",
+      "ft_strlcat.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strlcat.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strlcat.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strlcpy.o",
+      "ft_strlcpy.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strlcpy.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strlcpy.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strncmp.o",
+      "ft_strncmp.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strncmp.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strncmp.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strnstr.o",
+      "ft_strnstr.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strnstr.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strnstr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strrchr.o",
+      "ft_strrchr.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strrchr.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strrchr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_tolower.o",
+      "ft_tolower.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_tolower.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_tolower.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_toupper.o",
+      "ft_toupper.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_toupper.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_toupper.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_substr.o",
+      "ft_substr.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_substr.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_substr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strjoin.o",
+      "ft_strjoin.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strjoin.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strjoin.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strtrim.o",
+      "ft_strtrim.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strtrim.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strtrim.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_split.o",
+      "ft_split.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_split.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_split.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_itoa.o",
+      "ft_itoa.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_itoa.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_itoa.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_strmapi.o",
+      "ft_strmapi.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strmapi.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_strmapi.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_striteri.o",
+      "ft_striteri.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_striteri.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_striteri.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_putchar_fd.o",
+      "ft_putchar_fd.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putchar_fd.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putchar_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_putstr_fd.o",
+      "ft_putstr_fd.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putstr_fd.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putstr_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_putendl_fd.o",
+      "ft_putendl_fd.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putendl_fd.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putendl_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_putnbr_fd.o",
+      "ft_putnbr_fd.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putnbr_fd.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_putnbr_fd.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_printchar.o",
+      "ft_printchar.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_printchar.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_printchar.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_printnbr.o",
+      "ft_printnbr.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_printnbr.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_printnbr.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-c",
+      "-o",
+      "ft_printf.o",
+      "ft_printf.c"
+    ],
+    "directory": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib",
+    "file": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_printf.c",
+    "output": "/Users/osarsari/Documents/42Cursus/SoLong/so_long/Lib/ft_printf.o"
+  }
+]
