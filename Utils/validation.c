@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/20 21:33:15 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/20 21:40:48 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,24 @@ int	valid_extension(const char *file)
 	return (0);
 }
 
-t_map	*create_map(const char *file)
+int	rectangular_map(int fd)
 {
-	t_map	*map;
-	int		fd;
 	char	*line;
 	int		i;
+	int		j;
 
-	if (!valid_extension(file))
-		return (NULL);
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	map = (t_map *)malloc(sizeof(t_map));
-	if (!map)
-		return (NULL);
+	i = 0;
+	j = 0;
 	line = get_next_line(fd);
-	map->width = ft_strlen(line);
-	map->height = 1;
-	map.map = (char **)malloc(sizeof(char *) * map->height);
+	while (line)
+	{
+		if (i == 0)
+			j = ft_strlen(line);
+		else if (j != ft_strlen(line))
+			return (0);
+		i++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (i > 3);
 }
