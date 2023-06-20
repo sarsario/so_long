@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/20 21:40:48 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/20 21:44:27 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,16 @@ int	valid_extension(const char *file)
 	return (0);
 }
 
-int	rectangular_map(int fd)
+int	rectangular_map(char *file)
 {
 	char	*line;
 	int		i;
 	int		j;
+	int		fd;
 
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (0);
 	i = 0;
 	j = 0;
 	line = get_next_line(fd);
@@ -48,5 +52,8 @@ int	rectangular_map(int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+	if (line)
+		free(line);
+	close(fd);
 	return (i > 3);
 }
