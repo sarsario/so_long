@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/21 17:36:35 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/21 22:55:15 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_game {
 void	free_map(t_map *map);
 int		valid_extension(const char *file);
 char	*get_next_line(int fd);
+int		**init_visited(t_game *game);
 int		playable_map(t_map *map);
 t_map	*create_valid_map(int fd);
 t_map	*create_map(const char *file);

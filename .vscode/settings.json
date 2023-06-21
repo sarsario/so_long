@@ -1,4 +1,7 @@
 {
   "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
-  "C_Cpp.errorSquiggles": "disabled"
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "so_long.h": "c"
+  }
 }
