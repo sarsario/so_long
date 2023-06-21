@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/21 12:31:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:44:31 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,32 @@ int	valid_extension(const char *file)
 	return (0);
 }
 
-void	try_create_rectangle(int fd, t_map *map)
+int	added_row(t_map *map, char *line)
+{
+	char	**temp;
+	int		i;
+
+	temp = (char **)malloc(sizeof(char *) * (map->height + 1));
+	if (!temp)
+		return (0);
+	if (map->height == 0)
+	{
+		temp[0] = line;
+		map->map = temp;
+		map->height++;
+		return (1);
+	}
+	i = -1;
+	while (++i < map->height)
+		temp[i] = map->map[i];
+	temp[i] = line;
+	free(map->map);
+	map->map = temp;
+	map->height++;
+	return (1);
+}
+
+void	fill_map_from_file(int fd, t_map *map)
 {
 	char	*line;
 
@@ -46,7 +71,13 @@ void	try_create_rectangle(int fd, t_map *map)
 			free_map(map);
 			return ;
 		}
-		add_row(map, line);
+		if (!added_row(map, line))
+		{
+			free(line);
+			free_map(map);
+			return ;
+		}
+		line = get_next_line(fd);
 	}
 }
 
@@ -57,7 +88,7 @@ t_map	*create_valid_map(int fd)
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
-	try_create_rectangle(fd, map);
+	fill_map_from_file(fd, map);
 	if (!playable_map(map))
 		free_map(map);
 	if (!map)
@@ -65,43 +96,7 @@ t_map	*create_valid_map(int fd)
 	return (map);
 }
 
-t_map	*create_map(const char *file)
+int	player_can_exit(t_map *map, t_coord player, t_coord exit)
 {
-	int		fd;
-	t_map	*map;
-
-	if (!valid_extension(file))
-		return (NULL);
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	map = create_valid_map(fd);
-	close(fd);
-	return (map);
+	
 }
-
-// int	rectangular_map(int fd)
-// {
-// 	char	*line;
-// 	int		i;
-// 	int		j;
-// 	int		flag;
-
-// 	i = 0;
-// 	j = 0;
-// 	flag = 0;
-// 	line = get_next_line(fd);
-// 	while (line && !flag)
-// 	{
-// 		if (i == 0)
-// 			j = ft_strlen(line);
-// 		else if (j != ft_strlen(line))
-// 			flag = 1;
-// 		i++;
-// 		free(line);
-// 		line = get_next_line(fd);
-// 	}
-// 	if (line)
-// 		free(line);
-// 	return (i > 3 && !flag);
-// }

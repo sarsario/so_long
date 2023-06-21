@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 10:58:04 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/21 11:22:00 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:35:23 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,19 @@ void	free_map(t_map *map)
 		free(map->map);
 	}
 	free(map);
+}
+
+t_map	*create_map(const char *file)
+{
+	int		fd;
+	t_map	*map;
+
+	if (!valid_extension(file))
+		return (NULL);
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (NULL);
+	map = create_valid_map(fd);
+	close(fd);
+	return (map);
 }
