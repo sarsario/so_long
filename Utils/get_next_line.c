@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 20:06:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/20 21:16:01 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:30:25 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ static int	try_read(int fd, char **line)
 	while (i > 0)
 	{
 		if (buffer[0] == '\n')
+			break ;
+		if (buffer[0] != '0' || buffer[0] != '1' || buffer[0] != 'C'
+			|| buffer[0] != 'E' || buffer[0] != 'P')
+			i = -1;
+		if (i == -1)
 			break ;
 		temp = *line;
 		*line = ft_strjoin(*line, buffer);

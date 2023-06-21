@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/20 21:19:38 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:22:17 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_map {
 	int		height;
 }			t_map;
 
+void	free_map(t_map *map);
 char	*get_next_line(int fd);
 
 // typedef struct s_player {
