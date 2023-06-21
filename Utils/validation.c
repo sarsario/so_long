@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/21 13:44:31 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:34:01 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,4 @@ t_map	*create_valid_map(int fd)
 	if (!map)
 		return (NULL);
 	return (map);
-}
-
-int	player_can_exit(t_map *map, t_coord player, t_coord exit)
-{
-	
 }
