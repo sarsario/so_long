@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/21 22:55:15 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:26:49 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@
 # include <stdio.h>
 # include <math.h>
 
+# define MAX_BUFFER 8192
+# define MIN_BUFFER 1
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# elif BUFFER_SIZE > MAX_BUFFER
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE MAX_BUFFER
+# elif BUFFER_SIZE < MIN_BUFFER
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE MIN_BUFFER
+# endif
 // # define ESC 53
 // # define W 13
 // # define A 0
