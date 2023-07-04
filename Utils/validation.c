@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/06/21 16:34:01 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/04 13:54:05 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,69 +29,46 @@ int	valid_extension(const char *file)
 	return (0);
 }
 
-int	added_row(t_map *map, char *line)
+int	valid_char(char c)
 {
-	char	**temp;
-	int		i;
-
-	temp = (char **)malloc(sizeof(char *) * (map->height + 1));
-	if (!temp)
-		return (0);
-	if (map->height == 0)
-	{
-		temp[0] = line;
-		map->map = temp;
-		map->height++;
+	if (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P')
 		return (1);
+	return (0);
+}
+
+int	valid_line(char *line)
+{
+	int	i;
+
+	if (!line)
+		return (0);
+	i = 0;
+	while (line[i])
+	{
+		if (!valid_char(line[i]))
+			return (0);
+		i++;
 	}
-	i = -1;
-	while (++i < map->height)
-		temp[i] = map->map[i];
-	temp[i] = line;
-	free(map->map);
-	map->map = temp;
-	map->height++;
 	return (1);
 }
 
-void	fill_map_from_file(int fd, t_map *map)
+int	rectangular_map(char **map)
 {
-	char	*line;
+	int	row;
+	int	col;
+	int	i;
 
-	line = get_next_line(fd);
-	if (!line)
-		return ;
-	while (line)
+	if (!map)
+		return (0);
+	row = 0;
+	col = ft_strlen(map[row]);
+	while (map[++row])
 	{
-		if (map->height == 0)
-			map->width = ft_strlen(line);
-		else if (map->width != ft_strlen(line))
-		{
-			free(line);
-			free_map(map);
-			return ;
-		}
-		if (!added_row(map, line))
-		{
-			free(line);
-			free_map(map);
-			return ;
-		}
-		line = get_next_line(fd);
+		i = ft_strlen(map[row]);
+		if (i != col)
+			return (0);
 	}
-}
-
-t_map	*create_valid_map(int fd)
-{
-	t_map	*map;
-
-	map = (t_map *)malloc(sizeof(t_map));
-	if (!map)
-		return (NULL);
-	fill_map_from_file(fd, map);
-	if (!playable_map(map))
-		free_map(map);
-	if (!map)
-		return (NULL);
-	return (map);
+	if ((row == 3 && col < 6) || (col == 3 && row < 6) || row < 3 || col < 3)
+		return (0);
+	return (1);
 }
