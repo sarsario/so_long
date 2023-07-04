@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/04 13:01:01 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:29:38 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,10 @@ char	*ft_join_free(char *s1, char *s2);
 char	**create_map(int fd);
 void	loop_map(t_game *game);
 int		valid_extension(const char *file);
+int		duplicate_char(char **map, char c);
+int		valid_map(char **map);
+int		valid_char(char c);
+int		valid_line(char *line);
+int		rectangular_map(char **map);
 
 #endif

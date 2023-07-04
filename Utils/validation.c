@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/04 13:54:05 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/04 16:18:13 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int	valid_extension(const char *file)
 
 	if (!file)
 		return (0);
-	i = 0;
-	while (file[i])
-		i++;
+	i = ft_strlen(file);
 	if (i < 5)
 		return (0);
 	if (file[i - 1] == 'r' && file[i - 2] == 'e'
@@ -61,6 +59,8 @@ int	rectangular_map(char **map)
 	if (!map)
 		return (0);
 	row = 0;
+	if (!map[row])
+		return (0);
 	col = ft_strlen(map[row]);
 	while (map[++row])
 	{
@@ -68,7 +68,29 @@ int	rectangular_map(char **map)
 		if (i != col)
 			return (0);
 	}
-	if ((row == 3 && col < 6) || (col == 3 && row < 6) || row < 3 || col < 3)
+	if (row < 3 || col < 3 || (row == 3 && col < 6) || (col == 3 && row < 6))
 		return (0);
 	return (1);
+}
+
+int	duplicate_char(char **map, char c)
+{
+	int	row;
+	int	col;
+	int	count;
+
+	if (!map)
+		return (0);
+	row = -1;
+	count = 0;
+	while (map[++row])
+	{
+		col = -1;
+		while (map[row][++col])
+			if (map[row][col] == c)
+				count++;
+	}
+	if (count > 1)
+		return (1);
+	return (0);
 }
