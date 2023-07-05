@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/04 16:29:38 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/05 10:51:05 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int		valid_map(char **map);
 int		valid_char(char c);
 int		valid_line(char *line);
 int		rectangular_map(char **map);
+void	null_game(t_game *game);
 
 #endif

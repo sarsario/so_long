@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:09:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/04 17:14:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/05 11:02:01 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ int	valid_map(char **map)
 	if (duplicate_char(map, 'P') || duplicate_char(map, 'E'))
 		return (0);
 	return (1);
+}
+
+int	valid_map_layout(t_game *game)
+{
+	t_coord	player_pos;
 }
