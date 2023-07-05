@@ -1,64 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation2.c                                      :+:      :+:    :+:   */
+/*   validation_helper.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 16:09:38 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/05 11:59:24 by osarsari         ###   ########.fr       */
+/*   Created: 2023/07/05 20:04:48 by osarsari          #+#    #+#             */
+/*   Updated: 2023/07/05 20:09:57 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	walled_map(char **map)
+int	count_lines(char **map)
 {
 	int	row;
-	int	max_row;
-	int	col;
 
 	if (!map)
 		return (0);
 	row = 0;
-	col = ft_strlen(map[row]);
 	while (map[row])
-	{
-		if (map[row][0] != '1' || map[row][col - 1] != '1')
-			return (0);
 		row++;
-	}
-	max_row = row - 1;
-	row = 0;
-	while (row < col)
-	{
-		if (map[0][row] != '1' || map[max_row][row] != '1')
-			return (0);
-		row++;
-	}
-	return (1);
+	return (row);
 }
 
-int	valid_map(char **map)
+int	count_char(char **map, char c)
 {
 	int	row;
+	int	col;
+	int	count;
 
 	if (!map)
 		return (0);
 	row = -1;
+	count = 0;
 	while (map[++row])
 	{
-		if (!valid_line(map[row]))
-			return (0);
+		col = -1;
+		while (map[row][++col])
+			if (map[row][col] == c)
+				count++;
 	}
-	if (!rectangular_map(map))
-		return (0);
-	if (!walled_map(map))
-		return (0);
-	if (count_char(map, 'P') != 1 || count_char(map, 'E') != 1
-		|| count_char(map, 'C') < 1)
-		return (0);
-	return (1);
+	return (count);
 }
 
 t_coord	*get_pos(char **map, char c)
@@ -86,22 +69,6 @@ t_coord	*get_pos(char **map, char c)
 	}
 	if (pos)
 		free(pos);
-	return (NULL);
-}
-
-t_coord	**free_ls_coord(t_coord **ls)
-{
-	int	i;
-
-	if (!ls)
-		return (NULL);
-	i = 0;
-	while (ls[i])
-	{
-		free(ls[i]);
-		i++;
-	}
-	free(ls);
 	return (NULL);
 }
 
