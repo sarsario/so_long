@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:57:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/05 12:29:15 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/05 17:35:33 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	count_lines(char **map)
 {
 	int	row;
 
+	if (!map)
+		return (0);
 	row = 0;
 	while (map[row])
 		row++;
