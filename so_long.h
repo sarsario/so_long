@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/05 10:51:05 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:29:10 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,14 @@ char	*ft_join_free(char *s1, char *s2);
 char	**create_map(int fd);
 void	loop_map(t_game *game);
 int		valid_extension(const char *file);
-int		duplicate_char(char **map, char c);
+int		count_char(char **map, char c);
 int		valid_map(char **map);
 int		valid_char(char c);
 int		valid_line(char *line);
 int		rectangular_map(char **map);
 void	null_game(t_game *game);
+t_coord	**get_collectibles(char **map);
+t_coord	**free_ls_coord(t_coord **ls);
+int		found_path(t_game *game, t_coord *start, t_coord *end);
 
 #endif

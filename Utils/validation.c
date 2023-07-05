@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:48:52 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/05 10:14:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/05 11:11:56 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	rectangular_map(char **map)
 	return (1);
 }
 
-int	duplicate_char(char **map, char c)
+int	count_char(char **map, char c)
 {
 	int	row;
 	int	col;
@@ -90,7 +90,5 @@ int	duplicate_char(char **map, char c)
 			if (map[row][col] == c)
 				count++;
 	}
-	if (count > 1)
-		return (1);
-	return (0);
+	return (count);
 }
