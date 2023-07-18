@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/18 10:39:26 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:05:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,19 @@ char	**create_map(int fd);
 void	loop_map(t_game *game);
 int		valid_extension(const char *file);
 int		count_char(char **map, char c);
+int		count_lines(char **map);
 int		valid_map(char **map);
 int		valid_char(char c);
 int		valid_line(char *line);
 int		rectangular_map(char **map);
+int		walled_map(char **map);
 void	null_game(t_game *game);
+t_coord	*get_pos(char **map, char c);
 t_coord	**get_collectibles(char **map);
 t_coord	**free_ls_coord(t_coord **ls);
 int		found_path(t_game *game, t_coord *start, t_coord *end);
+int		**init_visited(t_game *game);
+int		**free_visited(int **visited, int height);
 int		ft_exit(t_game *game, char *message);
 
 #endif

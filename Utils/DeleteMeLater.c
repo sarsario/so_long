@@ -1,25 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation3.c                                      :+:      :+:    :+:   */
+/*   DeleteMeLater.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/05 11:57:12 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/05 12:29:15 by osarsari         ###   ########.fr       */
+/*   Created: 2023/07/05 20:07:57 by osarsari          #+#    #+#             */
+/*   Updated: 2023/07/05 20:09:48 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	count_lines(char **map)
+int	valid_map(char **map)
 {
 	int	row;
 
-	row = 0;
-	while (map[row])
-		row++;
-	return (row);
+	if (!map)
+		return (0);
+	row = -1;
+	while (map[++row])
+	{
+		if (!valid_line(map[row]))
+			return (0);
+	}
+	if (!rectangular_map(map))
+		return (0);
+	if (!walled_map(map))
+		return (0);
+	if (count_char(map, 'P') != 1 || count_char(map, 'E') != 1
+		|| count_char(map, 'C') < 1)
+		return (0);
+	return (1);
+}
+
+t_coord	**free_ls_coord(t_coord **ls)
+{
+	int	i;
+
+	if (!ls)
+		return (NULL);
+	i = 0;
+	while (ls[i])
+	{
+		free(ls[i]);
+		i++;
+	}
+	free(ls);
+	return (NULL);
 }
 
 int	reachable_goals(t_game *game, t_coord *exit_pos, t_coord **collectibles)
