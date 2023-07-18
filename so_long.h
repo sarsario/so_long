@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/18 11:39:02 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:41:20 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "./Lib/libft.h"
 # include <fcntl.h>
 # include <stdio.h>
-#include <errno.h>
+# include <errno.h>
 # include <math.h>
 
 # define MAX_BUFFER_SIZE 8192
@@ -48,12 +48,6 @@ typedef struct s_coord {
 	int	y;
 }		t_coord;
 
-// typedef struct s_map {
-// 	char	**map;
-// 	int		width;
-// 	int		height;
-// }			t_map;
-
 typedef struct s_game {
 	void		*mlx;
 	void		*win;
@@ -66,33 +60,6 @@ typedef struct s_game {
 	int			moves;
 }				t_game;
 
-char	*get_next_line(int fd);
-char	*read_file(t_file *file);
-char	*my_get_line(t_file *file);
-int		check_newline(t_file *file);
-int		get_file_index(int fd, t_file *files);
-size_t	ft_strlen2(char *s);
-void	ft_substr2(t_file *file, int start);
-char	*ft_strdup2(char *s);
-char	*ft_strjoin2(char *s1, char *s2);
-char	*ft_join_free(char *s1, char *s2);
-char	**create_map(int fd);
-void	loop_map(t_game *game);
-int		valid_extension(const char *file);
-int		count_char(char **map, char c);
-int		count_lines(char **map);
-int		valid_map(char **map);
-int		valid_char(char c);
-int		valid_line(char *line);
-int		rectangular_map(char **map);
-int		walled_map(char **map);
-void	null_game(t_game *game);
-t_coord	*get_pos(char **map, char c);
-t_coord	**get_collectibles(char **map);
-t_coord	**free_ls_coord(t_coord **ls);
-int		found_path(t_game *game, t_coord *start, t_coord *end);
-int		**init_visited(t_game *game);
-int		**free_visited(int **visited, int height);
 int		ft_exit(t_game *game, char *message);
 
 #endif
