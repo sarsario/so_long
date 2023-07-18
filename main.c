@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 10:59:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/18 11:47:53 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:10:41 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ void	init_game(t_game *game)
 
 int	main(int argc, char **argv)
 {
-	t_file	file;
 	t_game	game;
+	int		fd;
 
-	init_game(&game);
 	if (argc != 2)
-		return (ft_exit(&game, "Error\nInvalid number of arguments\n"));
+		return (ft_exit(NULL, "Error\nInvalid number of arguments\n"));
 	if (!valid_extension(argv[1]))
-		return (ft_exit(&game, "Error\nInvalid file extension\n"));
-	file->fd = open(argv[1], O_RDONLY);
-	if (file->fd < 0)
-		return (ft_exit(&game, "Error\nInvalid file\n"));
+		return (ft_exit(NULL, "Error\nFile name's end must be .ber\n"));
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+		return (ft_exit(NULL, "Error\nFile could not be opened.\n"));
+	init_game(&game);
+	// Read fd and store map in game->map
 	return (0);
 }

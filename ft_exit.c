@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:37:31 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/18 11:38:18 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/18 11:50:46 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	free_map(char **map)
 
 void	free_game(t_game *game)
 {
+	if (!game)
+		return ;
 	if (game->map)
 		free_map(game->map);
 	if (game->mlx)

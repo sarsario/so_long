@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/07/18 11:41:20 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/07/18 12:06:12 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 # define MAX_BUFFER_SIZE 8192
 # define MIN_BUFFER_SIZE 1
-# define MAX_FD 1024
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 256
 # else
@@ -35,13 +34,6 @@
 #   define BUFFER_SIZE MAX_BUFFER_SIZE
 #  endif
 # endif
-
-typedef struct s_file
-{
-	int		fd;
-	char	buffer[BUFFER_SIZE + 1];
-	ssize_t	bytes_read;
-}			t_file;
 
 typedef struct s_coord {
 	int	x;
