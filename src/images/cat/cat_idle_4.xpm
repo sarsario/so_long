@@ -1,0 +1,30 @@
+/* XPM */
+static char *cat_idle_41691848066[] = {
+/* columns rows colors chars-per-pixel */
+"24 20 4 1 ",
+"  c None",
+". c #2F2F2E",
+"X c gray71",
+"o c gray88",
+/* pixels */
+"                        ",
+"                        ",
+"                        ",
+"                        ",
+"          ..   ..       ",
+"          .X...X.       ",
+"          .Xoooo.       ",
+"          .X.XX..       ",
+"          .Xoooo.       ",
+"          .XXXXX.       ",
+"         .XXooo.        ",
+"         .XXooo.        ",
+"     ..  .Xoooo.        ",
+"     .X..XXo.o.o.       ",
+"      .X.XXo.o.o.       ",
+"       ..........       ",
+"                        ",
+"                        ",
+"                        ",
+"                        "
+};
