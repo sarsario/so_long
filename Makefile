@@ -1,39 +1,42 @@
-MINILIBX_PATH = ./MiniLibX
-MINILIBX = $(MINILIBX_PATH)/libmlx.a
-LIBFT_PATH = ./Lib
-LIBFT = $(LIBFT_PATH)/libft.a
-SRCS = main.c
-OBJS = $(SRCS:%.c=%.o)
+MLX_PATH = ./includes/mlx
+MLX_LIB = $(MLX_PATH)/libmlx.a
+LIBFT_PATH = ./includes/lib
+LIBFT_LIB = $(LIBFT_PATH)/libft.a
+LIBFT = -L $(LIBFT_PATH) -lft
+MLX = -L $(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
+LIBS = $(LIBFT) $(MLX)
+SRCS = so_long.c
+OBJ_DIR = ./obj
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
+INCS = -I ./includes -I $(MLX_PATH) -I $(LIBFT_PATH)
 NAME = so_long
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-# LDFLAGS = -L$(MINILIBX)
-FRAMEWORK = -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
-$(NAME): $(MINILIBX) $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -I$(MINILIBX) -I$(LIBFT_PATH) $(OBJS) $(LIBFT) $(MINILIBX) $(FRAMEWORK) -o $(NAME)
+$(NAME): $(OBJS) $(MLX_LIB) $(LIBFT_LIB)
+	$(CC) $(CFLAGS) $(INCS) $(OBJS) $(LIBS) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(MINILIBX) -c $< -o $@
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
-$(LIBFT):
-	@make -C $(LIBFT_PATH)
+$(MLX_LIB):
+	$(MAKE) -C $(MLX_PATH)
 
-$(MINILIBX):
-	@make -C $(MINILIBX_PATH)
+$(LIBFT_LIB):
+	$(MAKE) -C $(LIBFT_PATH)
 
 clean:
-	$(RM) $(OBJS)
-	@make clean -C $(LIBFT_PATH)
-	@make clean -C $(MINILIBX_PATH)
+	$(MAKE) -C $(MLX_PATH) clean
+	$(MAKE) -C $(LIBFT_PATH) clean
+	$(RM) -r $(OBJ_DIR)
 
 fclean: clean
+	$(MAKE) -C $(LIBFT_PATH) fclean
 	$(RM) $(NAME)
-	@make fclean -C $(LIBFT_PATH)
-	# @make fclean -C $(MINILIBX_PATH)
 
 re: fclean all
 
