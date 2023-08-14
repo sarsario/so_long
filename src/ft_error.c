@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/12 11:55:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/14 14:48:06 by osarsari         ###   ########.fr       */
+/*   Created: 2023/08/14 14:33:25 by osarsari          #+#    #+#             */
+/*   Updated: 2023/08/14 14:33:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/so_long.h"
+#include "../includes/so_long.h"
 
-int	main(int argc, char **argv)
+int	ft_error(char *str)
 {
-	t_game	game;
-	char	*error_msg;
-
-	if (argc != 2)
-		return ft_error("Error\nInvalid number of arguments\n");
-	if (!ft_valid_file(argv[1], &error_msg, &game))
-		return (ft_error(error_msg));
-	return (0);
+	ft_putstr_fd(str, 2);
+	return (1);
 }
