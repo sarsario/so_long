@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 13:13:40 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/17 14:48:55 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct s_game {
 	int		width;
 	int		height;
 	char	**map;
+	int		collectibles;
+	int		player;
+	int		exit;
 }			t_game;
 
 void	ft_free(t_game *game);

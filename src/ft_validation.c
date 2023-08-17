@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:16:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 14:19:42 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:03:03 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ int	ft_valid_map(int fd, char **error_msg, t_game *game)
 	game->map = NULL;
 	game->height = 0;
 	game->width = 0;
+	game->player = 0;
+	game->collectibles = 0;
+	game->exit = 0;
 	while (get_next_line(fd, &line))
 	{
 		if (!ft_valid_line(line, error_msg))
