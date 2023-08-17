@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:55:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/14 14:48:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/17 13:08:46 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return ft_error("Error\nInvalid number of arguments\n");
 	if (!ft_valid_file(argv[1], &error_msg, &game))
-		return (ft_error(error_msg));
+		return (ft_error(&game, error_msg));
 	return (0);
 }
