@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 14:48:55 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/17 16:18:43 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,14 @@ typedef struct s_game {
 	int		collectibles;
 	int		player;
 	int		exit;
+	int		player_x;
+	int		player_y;
 }			t_game;
 
 void	ft_free(t_game *game);
 int		ft_valid_file(char *file, char **error_msg, t_game *game);
 int		ft_error(t_game *game, char *str);
+int		ft_enough_elements(char **error_msg, t_game *game);
+int		ft_valid_path(char **error_msg, t_game *game);
 
 #endif
