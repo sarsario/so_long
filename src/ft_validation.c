@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:16:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 15:03:03 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/17 20:26:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,22 @@ int	ft_closed_map(char **error_msg, t_game *game)
 	return (1);
 }
 
+int	ft_valid_rules(char **error_msg, t_game *game)
+{
+	if (!ft_valid_size(error_msg, game))
+		return (0);
+	if (!ft_closed_map(error_msg, game))
+		return (0);
+	if (!ft_enough_elements(error_msg, game))
+		return (0);
+	if (!ft_valid_path(error_msg, game))
+		return (0);
+	return (1);
+}
+
 int	ft_valid_map(int fd, char **error_msg, t_game *game)
 {
-	char	*line;
+	char	line[50];
 
 	game->map = NULL;
 	game->height = 0;
@@ -104,15 +117,10 @@ int	ft_valid_map(int fd, char **error_msg, t_game *game)
 	{
 		if (!ft_valid_line(line, error_msg))
 			return (0);
-		ft_join_array(game->map, line);
+		if (!ft_join_array(&(game->map), line))
+			return (0);
 	}
-	if (!ft_valid_size(error_msg, game))
-		return (0);
-	if (!ft_closed_map(error_msg, game))
-		return (0);
-	if (!ft_enough_elements(error_msg, game))
-		return (0);
-	if (!ft_valid_path(error_msg, game))
+	if (!ft_valid_rules(error_msg, game))
 		return (0);
 	return (1);
 }

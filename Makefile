@@ -5,7 +5,7 @@ LIBFT_LIB = $(LIBFT_PATH)/libft.a
 LIBFT = -L $(LIBFT_PATH) -lft
 MLX = -L $(MLX_PATH) -lmlx -framework OpenGL -framework AppKit
 LIBS = $(LIBFT) $(MLX)
-SRCS = src/ft_error.c src/ft_free.c src/ft_validation.c\
+SRCS = src/ft_utils.c src/ft_validation.c src/ft_array.c\
 	so_long.c
 OBJ_DIR = ./obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:%.c=%.o))
