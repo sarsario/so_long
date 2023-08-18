@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:21:56 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 17:53:08 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:07:42 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ int	ft_valid_path(char **error_msg, t_game *game)
 
 	map_cpy = ft_array_dup(game->map);
 	if (!map_cpy)
+	{
+		*error_msg = "Error\nMalloc failed\n";
 		return (0);
+	}
 	check_point = game->collectibles + game->exit;
 	if (!ft_check_path(map_cpy, game->player_x, game->player_y, &check_point))
 	{
@@ -83,5 +86,29 @@ int	ft_valid_path(char **error_msg, t_game *game)
 		return (0);
 	}
 	ft_array_free(map_cpy);
+	return (1);
+}
+
+int	ft_valid_line(char *line, char **error_msg)
+{
+	int	i;
+
+	i = -1;
+	while (line[++i])
+	{
+		if (line[i] != '1' && line[i] != '0' && line[i] != 'C'
+			&& line[i] != 'E' && line[i] != 'P')
+		{
+			*error_msg = "Error\nInvalid character in map\n";
+			free(line);
+			return (0);
+		}
+	}
+	if (i < 5)
+	{
+		*error_msg = "Error\nMap is too small\n";
+		free(line);
+		return (0);
+	}
 	return (1);
 }

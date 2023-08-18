@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 19:32:10 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 20:26:50 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:00:18 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,23 @@ int	ft_array_join(char ***array, char *str)
 	char	**new;
 	int		i;
 
-	if (!(*)array)
+	if (!*array)
 	{
 		new = ft_calloc(2, sizeof(char *));
 		if (!new)
 			return (0);
-		new[0] = ft_strdup(str);
-		if (!new[0])
-		{
-			free(new);
-			return (0);
-		}
+		new[0] = str;
+		*array = new;
+		return (1);
 	}
+	new = ft_calloc(ft_array_len(*array) + 2, sizeof(char *));
+	if (!new)
+		return (0);
+	i = -1;
+	while ((*array)[++i])
+		new[i] = (*array)[i];
+	new[i] = str;
+	free(*array);
+	*array = new;
+	return (1);
 }

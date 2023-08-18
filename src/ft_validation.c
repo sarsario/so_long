@@ -6,35 +6,11 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:16:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/17 20:26:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:05:39 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-int	ft_valid_line(char *line, char **error_msg)
-{
-	int	i;
-
-	i = -1;
-	while (line[++i])
-	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'C'
-			&& line[i] != 'E' && line[i] != 'P')
-		{
-			*error_msg = "Error\nInvalid character in map\n";
-			free(line);
-			return (0);
-		}
-	}
-	if (i < 5)
-	{
-		*error_msg = "Error\nMap is too small\n";
-		free(line);
-		return (0);
-	}
-	return (1);
-}
 
 int	ft_valid_size(char **error_msg, t_game *game)
 {
@@ -105,20 +81,18 @@ int	ft_valid_rules(char **error_msg, t_game *game)
 
 int	ft_valid_map(int fd, char **error_msg, t_game *game)
 {
-	char	line[50];
+	char	*line;
 
-	game->map = NULL;
-	game->height = 0;
-	game->width = 0;
-	game->player = 0;
-	game->collectibles = 0;
-	game->exit = 0;
 	while (get_next_line(fd, &line))
 	{
 		if (!ft_valid_line(line, error_msg))
 			return (0);
-		if (!ft_join_array(&(game->map), line))
+		if (!ft_array_join(&(game->map), line))
+		{
+			*error_msg = "Error\nMap could not be allocated\n";
+			free(line);
 			return (0);
+		}
 	}
 	if (!ft_valid_rules(error_msg, game))
 		return (0);
