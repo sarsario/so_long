@@ -15,6 +15,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
+$(shell mkdir -p $(OBJ_DIR))
+$(shell mkdir -p $(OBJ_DIR)/src)
+
 all: $(NAME)
 
 $(NAME): $(OBJS) $(MLX_LIB) $(LIBFT_LIB)

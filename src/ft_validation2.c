@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:21:56 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/18 10:07:42 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/18 11:00:21 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	ft_enough_elements(char **error_msg, t_game *game)
 			if (game->map[i][j] == 'P')
 				set_player(game, i, j);
 			else if (game->map[i][j] == 'E')
-				game.exit++;
+				game->exit++;
 			else if (game->map[i][j] == 'C')
 				game->collectibles++;
 		}
 	}
-	if (game.player != 1 || game.exit != 1 || game->collectibles < 1)
+	if (game->player != 1 || game->exit != 1 || game->collectibles < 1)
 	{
 		*error_msg = "Error\nNot enough elements in map\n";
 		return (0);
@@ -61,7 +61,7 @@ int	ft_check_path(char **map, int x, int y, int *c)
 	if (x < ft_array_len(map) - 2 && map[x + 1][y] != '1'
 		&& ft_check_path(map, x + 1, y, c))
 		return (1);
-	if (y < ft_strlen(map[x]) - 2 && map[x][y + 1] != '1'
+	if (y < (int)ft_strlen(map[x]) - 2 && map[x][y + 1] != '1'
 		&& ft_check_path(map, x, y + 1, c))
 		return (1);
 	return (0);

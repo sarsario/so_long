@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:16:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/18 10:05:39 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:59:16 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_valid_size(char **error_msg, t_game *game)
 	{
 		if (game->width == 0)
 			game->width = ft_strlen(game->map[i]);
-		if (game->width != ft_strlen(game->map[i]))
+		if (game->width != (int)ft_strlen(game->map[i]))
 		{
 			*error_msg = "Error\nMap is not rectangular\n";
 			return (0);
@@ -83,7 +83,8 @@ int	ft_valid_map(int fd, char **error_msg, t_game *game)
 {
 	char	*line;
 
-	while (get_next_line(fd, &line))
+	error_msg = NULL;
+	while (!error_msg && get_next_line(fd, &line, error_msg) > 0)
 	{
 		if (!ft_valid_line(line, error_msg))
 			return (0);
@@ -94,6 +95,8 @@ int	ft_valid_map(int fd, char **error_msg, t_game *game)
 			return (0);
 		}
 	}
+	if (error_msg)
+		return (0);
 	if (!ft_valid_rules(error_msg, game))
 		return (0);
 	return (1);

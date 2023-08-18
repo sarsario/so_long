@@ -6,15 +6,15 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/18 10:02:19 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/18 10:56:37 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "./MiniLibX/mlx.h"
-# include "./Lib/libft.h"
+# include "./mlx/mlx.h"
+# include "./lib/libft.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <errno.h>
@@ -38,6 +38,7 @@ void	ft_array_free(char **array);
 int		ft_array_len(char **array);
 char	**ft_array_dup(char **array);
 int		ft_array_join(char ***array, char *str);
+int		get_next_line(int fd, char **line, char **error_msg);
 int		ft_valid_line(char *line, char **error_msg);
 int		ft_enough_elements(char **error_msg, t_game *game);
 int		ft_valid_path(char **error_msg, t_game *game);
