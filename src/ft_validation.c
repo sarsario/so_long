@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:16:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 10:51:43 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 13:38:14 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,27 +83,23 @@ int	ft_valid_map(int fd, char **error_msg, t_game *game)
 {
 	char	*line;
 
-	*error_msg = NULL;
-	while (!*error_msg && get_next_line(fd, &line, error_msg) > 0)
+	line = get_next_line(fd);
+	if (!line)
+	{
+		*error_msg = "Error\nMap is empty\n";
+		return (0);
+	}
+	while (line)
 	{
 		if (!ft_valid_line(line, error_msg))
 			return (0);
 		if (!ft_array_join(&(game->map), line))
 		{
-			*error_msg = "Error\nMap could not be allocated\n";
 			free(line);
+			*error_msg = "Error\nMap could not be allocated\n";
 			return (0);
 		}
-	}
-	if (*error_msg)
-		return (0);
-	if (!ft_valid_line(line, error_msg))
-		return (0);
-	if (!ft_array_join(&(game->map), line))
-	{
-		*error_msg = "Error\nMap could not be allocated\n";
-		free(line);
-		return (0);
+		line = get_next_line(fd);
 	}
 	if (!ft_valid_rules(error_msg, game))
 		return (0);

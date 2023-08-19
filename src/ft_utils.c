@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:09:44 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 10:52:35 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 13:16:58 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,35 +37,47 @@ int	ft_error(t_game *game, char *str)
 	return (1);
 }
 
-int	get_next_line(int fd, char **line, char **error_msg)
+char	*ft_realloc(char *str, int size)
 {
-	char	*buffer;
+	char	*new;
 	int		i;
-	int		r;
 
-	buffer = ft_calloc(50, sizeof(char));
-	if (!buffer)
+	new = ft_calloc(size + 1, sizeof(char));
+	if (!new)
 	{
-		*error_msg = "Error\nMalloc failed\n";
-		return (-1);
+		free(str);
+		return (NULL);
 	}
+	i = -1;
+	while (str[++i])
+		new[i] = str[i];
+	free(str);
+	return (new);
+}
+
+char	*get_next_line(int fd)
+{
+	char	c;
+	char	*line;
+	int		i;
+
+	line = ft_calloc(1, sizeof(char));
+	if (!line)
+		return (NULL);
 	i = 0;
-	r = read(fd, &buffer[i], 1);
-	while (r > 0 && buffer[i] != '\n' && i < 49)
-		r = read(fd, &buffer[++i], 1);
-	if (r == -1)
+	while (read(fd, &c, 1) > 0)
 	{
-		*error_msg = "Error\nRead failed\n";
-		free(buffer);
-		return (-1);
+		if (c == '\n')
+			break ;
+		line = ft_realloc(line, i + 2);
+		if (!line)
+			return (NULL);
+		line[i++] = c;
 	}
-	if (r == 0 && i == 0)
+	if (i == 0)
 	{
-		free(buffer);
-		return (0);
+		free(line);
+		return (NULL);
 	}
-	if (buffer[i] == '\n')
-		buffer[i] = '\0';
-	*line = buffer;
-	return (r);
+	return (line);
 }
