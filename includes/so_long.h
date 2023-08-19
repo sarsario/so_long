@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 13:07:43 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 13:52:40 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_game {
 	int		collectibles;
 	int		player;
 	int		exit;
+	int		moves;
 	int		player_x;
 	int		player_y;
 }			t_game;
