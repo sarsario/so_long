@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 13:52:40 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 14:10:33 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int		ft_valid_line(char *line, char **error_msg);
 int		ft_enough_elements(char **error_msg, t_game *game);
 int		ft_valid_path(char **error_msg, t_game *game);
 int		ft_valid_file(char *file, char **error_msg, t_game *game);
+int		ft_init_window(t_game *game, char **error_msg);
 
 #endif

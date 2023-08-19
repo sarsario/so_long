@@ -6,7 +6,7 @@
 #    By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/10 13:37:24 by osarsari          #+#    #+#              #
-#    Updated: 2023/08/19 12:47:06 by osarsari         ###   ########.fr        #
+#    Updated: 2023/08/19 14:13:12 by osarsari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ MLX_DIR	= includes/mlx/
 CFLAGS	+= -I $(INCDIR) -I $(INCDIR)lib -I $(INCDIR)mlx
 
 # Linking stage flags
-LDFLAGS = -framework OpenGL -framework AppKit -L$(INCDIR)lib -lft
+LDFLAGS = -framework OpenGL -framework AppKit -L$(INCDIR)lib -lft -L$(INCDIR)mlx -lmlx
 
 # List of source files (add your *.c files here)
 
@@ -45,6 +45,7 @@ SRCS =\
 	$(SRCDIR)ft_validation2.c\
 	$(SRCDIR)ft_utils.c\
 	$(SRCDIR)ft_array.c\
+	$(SRCDIR)ft_load_map.c\
 
 HEADERS =\
 	$(INCDIR)so_long.h \

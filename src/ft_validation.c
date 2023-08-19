@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 14:16:29 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 13:38:14 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 14:17:16 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_valid_size(char **error_msg, t_game *game)
 		}
 	}
 	game->height = i;
-	if (game->height < 5 || game->width < 5)
+	if (game->height < 3 || game->width < 3)
 	{
 		*error_msg = "Error\nMap is too small\n";
 		return (0);

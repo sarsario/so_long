@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:21:56 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 10:53:02 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 14:18:23 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	ft_valid_line(char *line, char **error_msg)
 		}
 		i++;
 	}
-	if (i < 5)
+	if (i < 3)
 	{
 		*error_msg = "Error\nMap is too small\n";
 		free(line);
