@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:55:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 13:19:10 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 13:41:50 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,5 @@ int	main(int argc, char **argv)
 		return (ft_error(NULL, "Error\nInvalid number of arguments\n"));
 	if (!ft_valid_file(argv[1], &error_msg, &game))
 		return (ft_error(&game, error_msg));
-	if (game.map != NULL)
-	{
-		int	i = -1;
-		while (game.map[++i])
-			printf("%s\n", game.map[i]);
-	}
 	return (0);
 }
