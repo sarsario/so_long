@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:09:44 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/18 12:31:31 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 10:52:35 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,5 @@ int	get_next_line(int fd, char **line, char **error_msg)
 	if (buffer[i] == '\n')
 		buffer[i] = '\0';
 	*line = buffer;
-	printf("line: %s\n", *line);
-	printf("get_next_line returned: %d\n", r);
 	return (r);
 }

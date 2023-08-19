@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:21:56 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/18 12:25:05 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/19 10:53:02 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,15 +91,11 @@ int	ft_valid_path(char **error_msg, t_game *game)
 
 int	ft_valid_line(char *line, char **error_msg)
 {
-	printf("line: %s\n", line);
-	printf("line len: %d\n", (int)ft_strlen(line));
-	printf("line[13]: %d\n", (int)line[13]);
 	int	i;
 
 	i = 0;
 	while (line[i])
 	{
-		printf("line[%d]: %c\n", i, line[i]);
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'C'
 			&& line[i] != 'E' && line[i] != 'P')
 		{
@@ -115,6 +111,5 @@ int	ft_valid_line(char *line, char **error_msg)
 		free(line);
 		return (0);
 	}
-	printf("line: %s\n", line);
 	return (1);
 }
