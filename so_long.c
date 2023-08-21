@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:55:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/21 15:39:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:47:57 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ void	ft_init_game(t_game *game)
 	game->moves = 0;
 	game->collectibles = 0;
 	game->exit = 0;
+	game->img_set.exit.img = NULL;
+	game->img_set.floor.img = NULL;
+	game->img_set.food.img = NULL;
+	game->img_set.player.img = NULL;
+	game->img_set.wall.img = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -39,90 +44,11 @@ int	main(int argc, char **argv)
 		return (ft_error(&game, error_msg));
 	if (!ft_init_window(&game, &error_msg))
 		return (ft_error(&game, error_msg));
-	void	*floor;
-	int		img_width;
-	int		img_height;
-	floor = mlx_xpm_file_to_image(
-		game.mlx,
-		"./src/images/floor.xpm",
-		&img_width,
-		&img_height);
-	int		x;
-	int		y;
-	x = 0;
-	y = 0;
-	while (y < game.height)
-	{
-		while (x < game.width)
-		{
-			mlx_put_image_to_window(game.mlx, game.win, floor, x * 32, y * 32);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	void	*wall;
-	wall = mlx_xpm_file_to_image(
-		game.mlx,
-		"./src/images/wall.xpm",
-		&img_width,
-		&img_height);
-	void	*food;
-	food = mlx_xpm_file_to_image(
-		game.mlx,
-		"./src/images/food.xpm",
-		&img_width,
-		&img_height);
-	x = 0;
-	y = 0;
-	void	*exit;
-	exit = mlx_xpm_file_to_image(
-		game.mlx,
-		"./src/images/exit.xpm",
-		&img_width,
-		&img_height);
-	while (y < game.height)
-	{
-		while (x < game.width)
-		{
-			if (game.map[y][x] == '1')
-				mlx_put_image_to_window(
-					game.mlx,
-					game.win,
-					wall,
-					x * 32,
-					y * 32);
-			else if (game.map[y][x] == 'C')
-				mlx_put_image_to_window(
-					game.mlx,
-					game.win,
-					food,
-					x * 32 + 8,
-					y * 32 + 8);
-			else if (game.map[y][x] == 'E')
-				mlx_put_image_to_window(
-					game.mlx,
-					game.win,
-					exit,
-					x * 32,
-					y * 32);
-			x++;
-		}
-		x = 0;
-		y++;
-	}
-	void	*player;
-	player = mlx_xpm_file_to_image(
-		game.mlx,
-		"./src/images/player.xpm",
-		&img_width,
-		&img_height);
-	mlx_put_image_to_window(
-		game.mlx,
-		game.win,
-		player,
-		game.player_x * 32,
-		game.player_y * 32 - 8);
+	if (!ft_init_images(&game, &error_msg))
+		return (ft_error(&game, error_msg));
+	ft_draw_map(game);
+	mlx_hook(game.win, 2, 1L << 0, ft_key_press, &game);
+	mlx_hook(game.win, 17, 1L << 17, ft_close, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

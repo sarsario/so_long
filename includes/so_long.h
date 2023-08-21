@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/21 15:35:17 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:51:26 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ typedef struct s_img {
 }			t_img;
 
 typedef struct s_img_set {
-	t_img	*floor;
-	t_img	*wall;
-	t_img	*player;
-	t_img	*collectible;
-	t_img	*exit;
+	t_img	exit;
+	t_img	floor;
+	t_img	food;
+	t_img	player;
+	t_img	wall;
 }			t_img_set;
 
 typedef struct s_game {
 	void		*mlx;
 	void		*win;
-	t_img_set	*img_set;
+	t_img_set	img_set;
 	int			width;
 	int			height;
 	char		**map;
@@ -49,6 +49,7 @@ typedef struct s_game {
 	int			player_y;
 }				t_game;
 
+void	ft_free(t_game *game);
 int		ft_error(t_game *game, char *str);
 void	ft_array_free(char **array);
 int		ft_array_len(char **array);
@@ -60,5 +61,18 @@ int		ft_enough_elements(char **error_msg, t_game *game);
 int		ft_valid_path(char **error_msg, t_game *game);
 int		ft_valid_file(char *file, char **error_msg, t_game *game);
 int		ft_init_window(t_game *game, char **error_msg);
+int		ft_init_exit(t_game *game);
+int		ft_init_floor(t_game *game);
+int		ft_init_food(t_game *game);
+int		ft_init_player(t_game *game);
+int		ft_init_wall(t_game *game);
+int		ft_init_images(t_game *game, char **error_msg);
+void	ft_draw_map(t_game game);
+void	ft_move_right(t_game *game);
+void	ft_move_left(t_game *game);
+void	ft_move_up(t_game *game);
+void	ft_move_down(t_game *game);
+int		ft_key_press(int keycode, t_game *game);
+int		ft_close(t_game *game);
 
 #endif

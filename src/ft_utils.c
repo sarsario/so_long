@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:09:44 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 13:16:58 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:50:54 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,18 @@ void	ft_free(t_game *game)
 			free(game->map[i]);
 		free(game->map);
 	}
+	if (game->img_set.exit.img)
+		mlx_destroy_image(game->mlx, game->img_set.exit.img);
+	if (game->img_set.floor.img)
+		mlx_destroy_image(game->mlx, game->img_set.floor.img);
+	if (game->img_set.food.img)
+		mlx_destroy_image(game->mlx, game->img_set.food.img);
+	if (game->img_set.player.img)
+		mlx_destroy_image(game->mlx, game->img_set.player.img);
+	if (game->img_set.wall.img)
+		mlx_destroy_image(game->mlx, game->img_set.wall.img);
 	if (game->win)
-		free(game->win);
+		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 		free(game->mlx);
 }

@@ -6,7 +6,7 @@
 #    By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/10 13:37:24 by osarsari          #+#    #+#              #
-#    Updated: 2023/08/19 14:13:12 by osarsari         ###   ########.fr        #
+#    Updated: 2023/08/21 18:11:05 by osarsari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,10 @@ SRCS =\
 	$(SRCDIR)ft_validation2.c\
 	$(SRCDIR)ft_utils.c\
 	$(SRCDIR)ft_array.c\
+	$(SRCDIR)ft_init_image.c\
 	$(SRCDIR)ft_load_map.c\
+	$(SRCDIR)ft_key_press.c\
+	$(SRCDIR)ft_move.c\
 
 HEADERS =\
 	$(INCDIR)so_long.h \
