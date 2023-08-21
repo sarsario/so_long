@@ -1,5 +1,5 @@
 /* XPM */
-static char *run61691856063[] = {
+static char *tile0001692622781[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 6 1 ",
 "  c None",
@@ -29,16 +29,16 @@ static char *run61691856063[] = {
 "                .oO. .Oo.       ",
 "                .OOO.OOO.       ",
 "               .OOOOOOOOO.      ",
-"       ..      .OOOXOOOXO.      ",
-"      .O+.     .OOOOOOOOO.      ",
-"      .O.      .OOOOOOOO.       ",
-"      .O.      ..+++OOO.        ",
-"      .OO......O+++++++.        ",
-"       .O++++OO+++++++.         ",
-"        .+++++++++++++.         ",
-"         .+++++....++.          ",
-"         .++...    .+.          ",
-"         .+.        .X          ",
-"        .+.                     ",
-"        X.                      "
+"               .OOXOOOXOO.      ",
+"               .OOOOOOOOO.      ",
+"               .OOOOOOO..       ",
+"                .+++OO.         ",
+"              ..O+++++.         ",
+"             .OO+++++.          ",
+"     ..     .OO+++++O.          ",
+"    .OO.   .+++++++OO.          ",
+"   .+.OO.  .+XX++++O.           ",
+"    . .O+..++++X++++.           ",
+"       .+++++++X++.+.           ",
+"        .+++++++X+.X.           "
 };

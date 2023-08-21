@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 11:55:27 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 15:54:59 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:39:51 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_init_game(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game		game;
-	t_img_set	img_set;
 	char		*error_msg;
 
 	ft_init_game(&game);
@@ -45,7 +44,7 @@ int	main(int argc, char **argv)
 	int		img_height;
 	floor = mlx_xpm_file_to_image(
 		game.mlx,
-		"./src/images/tileset/floor.xpm",
+		"./src/images/floor.xpm",
 		&img_width,
 		&img_height);
 	int		x;
@@ -65,11 +64,23 @@ int	main(int argc, char **argv)
 	void	*wall;
 	wall = mlx_xpm_file_to_image(
 		game.mlx,
-		"./src/images/tileset/wall_top.xpm",
+		"./src/images/wall.xpm",
+		&img_width,
+		&img_height);
+	void	*food;
+	food = mlx_xpm_file_to_image(
+		game.mlx,
+		"./src/images/food.xpm",
 		&img_width,
 		&img_height);
 	x = 0;
 	y = 0;
+	void	*exit;
+	exit = mlx_xpm_file_to_image(
+		game.mlx,
+		"./src/images/exit.xpm",
+		&img_width,
+		&img_height);
 	while (y < game.height)
 	{
 		while (x < game.width)
@@ -81,6 +92,20 @@ int	main(int argc, char **argv)
 					wall,
 					x * 32,
 					y * 32);
+			else if (game.map[y][x] == 'C')
+				mlx_put_image_to_window(
+					game.mlx,
+					game.win,
+					food,
+					x * 32 + 8,
+					y * 32 + 8);
+			else if (game.map[y][x] == 'E')
+				mlx_put_image_to_window(
+					game.mlx,
+					game.win,
+					exit,
+					x * 32,
+					y * 32);
 			x++;
 		}
 		x = 0;
@@ -89,7 +114,7 @@ int	main(int argc, char **argv)
 	void	*player;
 	player = mlx_xpm_file_to_image(
 		game.mlx,
-		"./src/images/cat/idle1.xpm",
+		"./src/images/player.xpm",
 		&img_width,
 		&img_height);
 	mlx_put_image_to_window(
