@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:21:56 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/19 15:29:14 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:19:08 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,17 @@ int	ft_check_path(char **map, int x, int y, int *c)
 	if (*c == 0)
 		return (1);
 	map[x][y] = '1';
-	if (x > 0 && map[x - 1][y] != '1' && ft_check_path(map, x - 1, y, c))
+	if (x > 0 && map[x - 1][y] != '1' && map[x - 1][y] != 'X'
+		&& ft_check_path(map, x - 1, y, c))
 		return (1);
-	if (y > 0 && map[x][y - 1] != '1' && ft_check_path(map, x, y - 1, c))
+	if (y > 0 && map[x][y - 1] != '1' && map[x][y - 1] != 'X'
+		&& ft_check_path(map, x, y - 1, c))
 		return (1);
 	if (x < ft_array_len(map) - 2 && map[x + 1][y] != '1'
-		&& ft_check_path(map, x + 1, y, c))
+		&& map[x + 1][y] != 'X' && ft_check_path(map, x + 1, y, c))
 		return (1);
 	if (y < (int)ft_strlen(map[x]) - 2 && map[x][y + 1] != '1'
-		&& ft_check_path(map, x, y + 1, c))
+		&& map[x][y + 1] != 'X' && ft_check_path(map, x, y + 1, c))
 		return (1);
 	return (0);
 }
@@ -97,7 +99,7 @@ int	ft_valid_line(char *line, char **error_msg)
 	while (line[i])
 	{
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'C'
-			&& line[i] != 'E' && line[i] != 'P')
+			&& line[i] != 'E' && line[i] != 'P' && line[i] != 'X')
 		{
 			*error_msg = "Error\nInvalid character in map\n";
 			free(line);

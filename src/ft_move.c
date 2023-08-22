@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:09:13 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/22 15:06:06 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:03:54 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ void	ft_move_up(t_game *game)
 		game->player_y--;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
+		ft_print_move(game);
+		if (game->map[game->player_y][game->player_x] == 'X')
+		{
+			ft_printf("You lost!\n");
+			ft_close(game);
+		}
 		if (game->map[game->player_y][game->player_x] == 'C')
 			game->collectibles--;
 		else if (game->map[game->player_y][game->player_x] == 'E')
@@ -66,6 +72,12 @@ void	ft_move_down(t_game *game)
 		game->player_y++;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
+		ft_print_move(game);
+		if (game->map[game->player_y][game->player_x] == 'X')
+		{
+			ft_printf("You lost!\n");
+			ft_close(game);
+		}
 		if (game->map[game->player_y][game->player_x] == 'C')
 			game->collectibles--;
 		else if (game->map[game->player_y][game->player_x] == 'E')
@@ -86,6 +98,12 @@ void	ft_move_left(t_game *game)
 		game->player_x--;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
+		ft_print_move(game);
+		if (game->map[game->player_y][game->player_x] == 'X')
+		{
+			ft_printf("You lost!\n");
+			ft_close(game);
+		}
 		if (game->map[game->player_y][game->player_x] == 'C')
 			game->collectibles--;
 		else if (game->map[game->player_y][game->player_x] == 'E')
@@ -106,6 +124,12 @@ void	ft_move_right(t_game *game)
 		game->player_x++;
 		game->moves++;
 		ft_printf("Moves: %d\n", game->moves);
+		ft_print_move(game);
+		if (game->map[game->player_y][game->player_x] == 'X')
+		{
+			ft_printf("You lost!\n");
+			ft_close(game);
+		}
 		if (game->map[game->player_y][game->player_x] == 'C')
 			game->collectibles--;
 		else if (game->map[game->player_y][game->player_x] == 'E')

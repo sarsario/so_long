@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:09:44 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/22 15:00:50 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:01:00 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,14 @@ void	ft_free_extra_img(t_game *game)
 			mlx_destroy_image(game->mlx, game->img_set->eat->img);
 		if (game->img_set->eat && game->img_set->eat->img)
 			free(game->img_set->eat);
+		if (game->img_set->enemy && game->img_set->enemy->img)
+			mlx_destroy_image(game->mlx, game->img_set->enemy->img);
+		if (game->img_set->enemy && game->img_set->enemy->img)
+			free(game->img_set->enemy);
+		if (game->img_set->bg && game->img_set->bg->img)
+			mlx_destroy_image(game->mlx, game->img_set->bg->img);
+		if (game->img_set->bg && game->img_set->bg->img)
+			free(game->img_set->bg);
 	}
 }
 
@@ -86,5 +94,6 @@ int	ft_error(t_game *game, char *str)
 	if (game)
 		ft_free(game);
 	ft_putstr_fd(str, 2);
+	exit(1);
 	return (1);
 }

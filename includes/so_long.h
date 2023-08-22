@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 19:29:19 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/22 14:59:00 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:03:32 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_img_set {
 	t_img	*wall;
 	t_img	*sleep;
 	t_img	*eat;
+	t_img	*enemy;
+	t_img	*bg;
 }			t_img_set;
 
 typedef struct s_game {
@@ -70,8 +72,11 @@ int		ft_init_player(t_game *game);
 int		ft_init_wall(t_game *game);
 int		ft_init_sleep(t_game *game);
 int		ft_init_eat(t_game *game);
+int		ft_init_enemy(t_game *game);
+int		ft_init_bg(t_game *game);
 int		ft_init_images(t_game *game, char **error_msg);
 void	ft_draw_map(t_game *game);
+void	ft_print_move(t_game *game);
 void	ft_move_right(t_game *game);
 void	ft_move_left(t_game *game);
 void	ft_move_up(t_game *game);

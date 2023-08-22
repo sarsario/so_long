@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 14:44:13 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/22 14:58:51 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:04:28 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,34 @@ int	ft_init_eat(t_game *game)
 			"./src/images/eat.xpm",
 			&(game->img_set->eat->width), &(game->img_set->eat->height));
 	if (!game->img_set->eat->img)
+		return (0);
+	return (1);
+}
+
+int	ft_init_enemy(t_game *game)
+{
+	game->img_set->enemy = malloc(sizeof(t_img));
+	if (!game->img_set->enemy)
+		return (0);
+	game->img_set->enemy->img = mlx_xpm_file_to_image(
+			game->mlx,
+			"./src/images/enemy.xpm",
+			&(game->img_set->enemy->width), &(game->img_set->enemy->height));
+	if (!game->img_set->enemy->img)
+		return (0);
+	return (1);
+}
+
+int	ft_init_bg(t_game *game)
+{
+	game->img_set->bg = malloc(sizeof(t_img));
+	if (!game->img_set->bg)
+		return (0);
+	game->img_set->bg->img = mlx_xpm_file_to_image(
+			game->mlx,
+			"./src/images/background.xpm",
+			&(game->img_set->bg->width), &(game->img_set->bg->height));
+	if (!game->img_set->bg->img)
 		return (0);
 	return (1);
 }
