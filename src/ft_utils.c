@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:09:44 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/21 18:50:54 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:10:15 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,21 @@ char	*ft_realloc(char *str, int size)
 	return (new);
 }
 
+char	*gnl_return(char **line, char *c, int i)
+{
+	if (i == 0 && *c == '\n')
+	{
+		*line[i] = *c;
+		return (*line);
+	}
+	if (i == 0)
+	{
+		free(*line);
+		return (NULL);
+	}
+	return (*line);
+}
+
 char	*get_next_line(int fd)
 {
 	char	c;
@@ -84,10 +99,5 @@ char	*get_next_line(int fd)
 			return (NULL);
 		line[i++] = c;
 	}
-	if (i == 0)
-	{
-		free(line);
-		return (NULL);
-	}
-	return (line);
+	return (gnl_return(&line, &c, i));
 }
