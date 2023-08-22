@@ -6,7 +6,7 @@
 #    By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/10 13:37:24 by osarsari          #+#    #+#              #
-#    Updated: 2023/08/21 18:11:05 by osarsari         ###   ########.fr        #
+#    Updated: 2023/08/22 15:08:52 by osarsari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@
 
 # The name of the executable
 NAME	= so_long
+
+# The name of the map
+MAP		= ./src/maps/big_deck.ber
 
 # Compiler and compiling flags
 CC	= gcc
@@ -44,8 +47,10 @@ SRCS =\
 	$(SRCDIR)ft_validation.c\
 	$(SRCDIR)ft_validation2.c\
 	$(SRCDIR)ft_utils.c\
+	$(SRCDIR)ft_utils2.c\
 	$(SRCDIR)ft_array.c\
 	$(SRCDIR)ft_init_image.c\
+	$(SRCDIR)ft_init_image2.c\
 	$(SRCDIR)ft_load_map.c\
 	$(SRCDIR)ft_key_press.c\
 	$(SRCDIR)ft_move.c\
@@ -114,7 +119,7 @@ re : fclean all
 # This runs the program
 run : $(NAME)
 	@printf "$(CY)>>> Running $(NAME)$(RC)\n"
-	./$(NAME)
+	./$(NAME) $(MAP)
 
 # This specifies the rules that does not correspond to any filename
 .PHONY: all run clean fclean re $(LIBFT) $(MLX)

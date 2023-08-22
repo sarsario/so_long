@@ -6,7 +6,7 @@
 /*   By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 17:07:09 by osarsari          #+#    #+#             */
-/*   Updated: 2023/08/21 17:28:16 by osarsari         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:08:54 by osarsari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,70 @@
 
 int	ft_init_exit(t_game *game)
 {
-	game->img_set.exit.img = mlx_xpm_file_to_image(
+	game->img_set->exit = malloc(sizeof(t_img));
+	if (!game->img_set->exit)
+		return (0);
+	game->img_set->exit->img = mlx_xpm_file_to_image(
 			game->mlx,
 			"./src/images/exit.xpm",
-			&(game->img_set.exit.width), &(game->img_set.exit.height));
-	if (!game->img_set.exit.img)
+			&(game->img_set->exit->width), &(game->img_set->exit->height));
+	if (!game->img_set->exit->img)
 		return (0);
 	return (1);
 }
 
 int	ft_init_floor(t_game *game)
 {
-	game->img_set.floor.img = mlx_xpm_file_to_image(
+	game->img_set->floor = malloc(sizeof(t_img));
+	if (!game->img_set->floor)
+		return (0);
+	game->img_set->floor->img = mlx_xpm_file_to_image(
 			game->mlx,
 			"./src/images/floor.xpm",
-			&(game->img_set.floor.width), &(game->img_set.floor.height));
-	if (!game->img_set.floor.img)
+			&(game->img_set->floor->width), &(game->img_set->floor->height));
+	if (!game->img_set->floor->img)
 		return (0);
 	return (1);
 }
 
 int	ft_init_food(t_game *game)
 {
-	game->img_set.food.img = mlx_xpm_file_to_image(
+	game->img_set->food = malloc(sizeof(t_img));
+	if (!game->img_set->food)
+		return (0);
+	game->img_set->food->img = mlx_xpm_file_to_image(
 			game->mlx,
 			"./src/images/food.xpm",
-			&(game->img_set.food.width), &(game->img_set.food.height));
-	if (!game->img_set.food.img)
+			&(game->img_set->food->width), &(game->img_set->food->height));
+	if (!game->img_set->food->img)
 		return (0);
 	return (1);
 }
 
 int	ft_init_player(t_game *game)
 {
-	game->img_set.player.img = mlx_xpm_file_to_image(
+	game->img_set->player = malloc(sizeof(t_img));
+	if (!game->img_set->player)
+		return (0);
+	game->img_set->player->img = mlx_xpm_file_to_image(
 			game->mlx,
 			"./src/images/player.xpm",
-			&(game->img_set.player.width), &(game->img_set.player.height));
-	if (!game->img_set.player.img)
+			&(game->img_set->player->width), &(game->img_set->player->height));
+	if (!game->img_set->player->img)
 		return (0);
 	return (1);
 }
 
 int	ft_init_wall(t_game *game)
 {
-	game->img_set.wall.img = mlx_xpm_file_to_image(
+	game->img_set->wall = malloc(sizeof(t_img));
+	if (!game->img_set->wall)
+		return (0);
+	game->img_set->wall->img = mlx_xpm_file_to_image(
 			game->mlx,
 			"./src/images/wall.xpm",
-			&(game->img_set.wall.width), &(game->img_set.wall.height));
-	if (!game->img_set.wall.img)
+			&(game->img_set->wall->width), &(game->img_set->wall->height));
+	if (!game->img_set->wall->img)
 		return (0);
 	return (1);
 }
