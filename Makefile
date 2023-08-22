@@ -6,7 +6,7 @@
 #    By: osarsari <osarsari@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/10 13:37:24 by osarsari          #+#    #+#              #
-#    Updated: 2023/08/22 15:08:52 by osarsari         ###   ########.fr        #
+#    Updated: 2023/08/22 16:21:14 by osarsari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 NAME	= so_long
 
 # The name of the map
-MAP		= ./src/maps/big_deck.ber
+MAP		= ./src/maps/enemy_6x12.ber
 
 # Compiler and compiling flags
 CC	= gcc
